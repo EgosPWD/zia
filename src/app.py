@@ -19,4 +19,5 @@ elif args.gemini:
     geminiModel(systemPrompt=os.getenv("SYSTEM_PROMPT"))
     
 else:
-    parser.print_help()
+    # Default Model
+    geminiModel(systemPrompt=os.getenv("SYSTEM_PROMPT"))
