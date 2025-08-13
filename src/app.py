@@ -9,10 +9,10 @@ load_dotenv(dotenv_path=".env")
 
 parser = argparse.ArgumentParser("Zia")
 
-parser.add_argument("-q", "--qwen", help="Use a Qwen", action="store_true")
-parser.add_argument("-g", "--gemini", help="Use a Gemini", action="store_true")
+parser.add_argument("-q", "--qwen", help="use a Qwen", action="store_true")
+parser.add_argument("-g", "--gemini", help="use a Gemini", action="store_true")
 parser.add_argument("model", type=str, help="model", nargs="?")
-parser.add_argument("--set-prompt", type=str, help="change and save the system prompt")
+parser.add_argument("-sp","--set-prompt", type=str, help="change and save the system prompt")
 
 args = parser.parse_args()
 

@@ -1,0 +1,5 @@
+#!/bin/bash
+# Activar entorno virtual y ejecutar
+source /home/ego/Documents/projects/zia/bu/bin/activate
+cd /home/ego/Documents/projects/zia
+python3 src/app.py "$@"
