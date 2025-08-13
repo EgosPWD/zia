@@ -4,7 +4,7 @@ from openai import OpenAI
 
 load_dotenv(dotenv_path=".env")
 
-def functionModel(qwenModel:str ="qwen/qwen3-30b-a3b:free", systemPrompt:str= "Your name is lucy" ):
+def function_model(qwen_model:str ="qwen/qwen3-30b-a3b:free", system_prompt:str= "Your name is lucy" ):
   text = input("")
   client = OpenAI(
       base_url="https://openrouter.ai/api/v1",
@@ -13,11 +13,11 @@ def functionModel(qwenModel:str ="qwen/qwen3-30b-a3b:free", systemPrompt:str= "Y
 
   completion = client.chat.completions.create(
 
-    model=qwenModel,
+    model=qwen_model,
     messages=[
      {
             "role": "system",
-            "content": systemPrompt
+            "content": system_prompt
       },
       {
         "role": "user",

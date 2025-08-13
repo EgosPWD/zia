@@ -1,7 +1,7 @@
 import os 
 from dotenv import load_dotenv
-from models.gemini import functionModel as geminiModel
-from models.openRouter import functionModel as qwenModel
+from models.gemini import  function_model as gemini_model
+from models.open_router import function_model as qwen_model
 import argparse
 
 load_dotenv(dotenv_path=".env")
@@ -16,16 +16,16 @@ args = parser.parse_args()
 
 if args.qwen:
     if args.model:
-        qwenModel(qwenModel=args.model, systemPrompt=os.getenv("SYSTEM_PROMPT"))
+        qwen_model(qwen_model==args.model, system_prompt=os.getenv("SYSTEM_PROMPT"))
     else:
-        qwenModel(systemPrompt=os.getenv("SYSTEM_PROMPT"))
+        qwen_model(system_prompt=os.getenv("SYSTEM_PROMPT"))
 elif args.gemini:
     if args.model:
-        geminiModel(googleModel=args.model, systemPrompt=os.getenv("SYSTEM_PROMPT"))
+        gemini_model(google_model=args.model, system_prompt=os.getenv("SYSTEM_PROMPT"))
     else:
-        geminiModel(systemPrompt=os.getenv("SYSTEM_PROMPT"))
+        gemini_model(system_prompt=os.getenv("SYSTEM_PROMPT"))
 else:
     if args.model:
-        geminiModel(googleModel=args.model, systemPrompt=os.getenv("SYSTEM_PROMPT"))
+        gemini_model(google_model=args.model, system_prompt=os.getenv("SYSTEM_PROMPT"))
     else:
-        geminiModel(systemPrompt=os.getenv("SYSTEM_PROMPT"))
+        gemini_model(system_prompt=os.getenv("SYSTEM_PROMPT"))
