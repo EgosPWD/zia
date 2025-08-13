@@ -6,18 +6,26 @@ import argparse
 
 load_dotenv(dotenv_path=".env")
 
-parser = argparse.ArgumentParser("dx")
+parser = argparse.ArgumentParser("Zia")
 
 parser.add_argument("-q", "--qwen", help="Use a Qwen", action="store_true")
 parser.add_argument("-g", "--gemini", help="Use a Gemini", action="store_true")
+parser.add_argument("model", type=str, help="model", nargs="?")
 
 args = parser.parse_args()
 
 if args.qwen:
-    qwenModel(systemPrompt=os.getenv("SYSTEM_PROMPT"))
+    if args.model:
+        qwenModel(qwenModel=args.model, systemPrompt=os.getenv("SYSTEM_PROMPT"))
+    else:
+        qwenModel(systemPrompt=os.getenv("SYSTEM_PROMPT"))
 elif args.gemini:
-    geminiModel(systemPrompt=os.getenv("SYSTEM_PROMPT"))
-    
+    if args.model:
+        geminiModel(googleModel=args.model, systemPrompt=os.getenv("SYSTEM_PROMPT"))
+    else:
+        geminiModel(systemPrompt=os.getenv("SYSTEM_PROMPT"))
 else:
-    # Default Model
-    geminiModel(systemPrompt=os.getenv("SYSTEM_PROMPT"))
+    if args.model:
+        geminiModel(googleModel=args.model, systemPrompt=os.getenv("SYSTEM_PROMPT"))
+    else:
+        geminiModel(systemPrompt=os.getenv("SYSTEM_PROMPT"))
